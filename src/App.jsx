@@ -5,15 +5,17 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer';
 
 const App = () => (
-  <div className='mx-auto max-w-[1170px]'>
-    <Navbar/>
-    <Router>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/converter' element={<Converter />} />
-      </Routes>
-    </Router>
-    <Footer/>
+  <div className=''>
+    <div className='mx-auto max-w-[1170px]'>
+      <Navbar />
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/converter' element={<Converter />} />
+        </Routes>
+      </Router>
+    </div>
+    <Footer />
   </div>
 )
 
