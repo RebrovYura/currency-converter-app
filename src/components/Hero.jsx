@@ -4,7 +4,7 @@ import img from '../assets/images/hero-main.png';
 
 const Hero = () => {
     return (
-        <section id='home' className='flex flex-col min-h-[100vh] lg:flex-row justify-center items-center md:gap-y-[50px] px-[30px] lg:gap-x-[50px] mb-[30px]'>
+        <section id='home' className='flex flex-col lg:flex-row justify-center items-center md:gap-y-[50px] px-[30px] lg:gap-x-[50px] mb-[30px]'>
             <div className='max-w-[410px] order-last lg:order-first min-w-[290px]'>
                 <h1 className='font-poppins font-bold text-[28px] sm:text-[40px] my-[20px] text-secondary leading-[40px] sm:leading-[50px]'>
                     Welcome to the
