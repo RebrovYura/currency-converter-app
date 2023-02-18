@@ -1,8 +1,11 @@
 import React from 'react'
+import ConvertContainer from '../components/ConvertContainer'
 
 const Converter = () => {
   return (
-    <div>Converter</div>
+    <div>
+      <ConvertContainer/>      
+    </div>
   )
 }
 
