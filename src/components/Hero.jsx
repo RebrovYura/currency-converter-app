@@ -19,7 +19,7 @@ const Hero = () => {
                     <Button />
                 </div>
             </div>
-            <div className='min-w-[350px]'>
+            <div className='min-w-[250px]'>
                 <img src={img} alt="hero" />
             </div>
 

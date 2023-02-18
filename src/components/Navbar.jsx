@@ -7,7 +7,7 @@ import close from '../assets/icons/close.svg';
 const Navbar = (props) => {
   const [burgerMenu, setBurgerMenu] = useState(false)
   return (
-    <nav className='flex justify-between items-center navbar py-[25px] px-[30px]'>
+    <nav className='flex justify-between items-center navbar py-[25px] md:px-[30px] px-[10px]'>
       <span className='font-poppins font-extrabold md:text-[32px] text-[24px] text-secondary'> Convert
         <span className='text-accent'>Simple</span>
       </span>
