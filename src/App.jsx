@@ -10,7 +10,7 @@ const App = () => {
       <div className='navbar max-w-[1170px] mx-auto w-full'>
         <Navbar />
       </div>
-      <div className='pages max-w-[1170px] mx-auto w-full'>
+      <div className='pages max-w-[1170px] md:w-full mx-auto'>
         <Router>
           <Routes>
             <Route path='/' element={<Home />} />

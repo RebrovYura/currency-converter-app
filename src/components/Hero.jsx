@@ -16,7 +16,7 @@ const Hero = () => {
                     button below.
                 </p>
                 <div className=''>
-                    <Button />
+                    <Button name='Get started'/>
                 </div>
             </div>
             <div className='min-w-[250px]'>
