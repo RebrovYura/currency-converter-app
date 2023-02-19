@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Clock from './Clock'
 
 const ConvertContainer = () => {

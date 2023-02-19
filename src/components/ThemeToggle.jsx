@@ -8,7 +8,7 @@ const ThemeToggle = () => {
     return (
         <Fragment>
             <button
-                className={`w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex justify-center items-center ml-[40px] rounded-[10px] bg-primary shadow-lg`}
+                className={`w-[40px] h-[40px] md:w-[60px] md:h-[60px] flex justify-center items-center md:ml-[40px] ml-[20px] rounded-[10px] bg-primary shadow-lg`}
                 onClick={() => setToggleButton((prev) => {
                     return prev = !prev
                 })}>

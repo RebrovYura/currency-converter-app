@@ -18,15 +18,17 @@ const Navbar = (props) => {
           </li>
         )}
         <li className=''>
-          <ThemeToggle/>
+          <ThemeToggle />
         </li>
       </ul>
       <div className='md:hidden flex justify-end item-center ml-[20px]'>
-        <div className='mr-[20px]'>
-        <ThemeToggle/>
+        <div className='mr-[10px]'>
+          <ThemeToggle />
         </div>
-        <img src={burgerMenu ? close : menu} alt='menu'
-          onClick={() => setBurgerMenu((prev) => !prev)} />
+        <div className='w-[40px] h-[40px] md:w-[60px] md:h-[60px] mr-[10px] flex justify-center items-center rounded-[10px] bg-primary shadow-lg'>
+          <img src={burgerMenu ? close : menu} alt='menu'
+            onClick={() => setBurgerMenu((prev) => !prev)} />
+        </div>
         <div className={`${burgerMenu ? 'flex' : 'hidden'} absolute py-[25px] px-[30px] right-[30px] top-[70px] rounded-[10px] bg-primary shadow-lg`}>
           <ul className='list-none flex justify-center flex-col items-center flex-1'>
             {navLinks.map((link, index) =>
