@@ -8,7 +8,7 @@ const Currency = (props) => {
             <div className='text-secondary font-semibold text-[20px]'>
                 {props.heading}
             </div>
-            <CurrencySelect option='Dollar, USA' />
+            <CurrencySelect />
             <CurrencyInput/>
         </div>
     )

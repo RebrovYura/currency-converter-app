@@ -1,6 +1,7 @@
 import Clock from './Clock'
-import Currency from './currencyInput/Currency'
+import Currency from './currencyInfo/Currency'
 import Button from './Button'
+import ExchangeRates from './currencyInfo/ExchangeRates'
 import arrows from '../assets/icons/arrows.svg'
 
 const ConvertContainer = () => {
@@ -13,12 +14,15 @@ const ConvertContainer = () => {
             </div>
             <div className='lg:mx-[90px] lg:my-[80px] mx-[10px] my-[20px]'>
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
-                    <Currency heading='Currency you have' />
+                    <div>
+                        <Currency heading='Currency you have' />
+                    </div>
                     <div className='w-[35px] h-[35px] lg:w-[52px] lg:h-[52px]'>
                         <img src={arrows} alt="arrows" />
                     </div>
                     <Currency heading='Currency you will receive' />
                 </div>
+
                 <Button name='Convert' />
             </div>
         </section>

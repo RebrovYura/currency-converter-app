@@ -1,0 +1,42 @@
+[
+    {
+        "code": "USD",
+        "name": "Dollar US",
+        "img": "../assets/images/flags/usd.svg"
+    },
+    {
+        "code": "RUB",
+        "name": "Russian Ruble",
+        "img": "img"
+    },
+    {
+        "code": "BYN",
+        "name": "Belarussian Ruble",
+        "img": "img"
+    },
+    {
+        "code": "UAH",
+        "name": "Ukrainian Hryvnia",
+        "img": "img"
+    },
+    {
+        "code": "EUR",
+        "name": "EURO",
+        "img": "img"
+    },
+    {
+        "code": "CNY",
+        "name": "Chinese Yuan",
+        "img": "img"
+    },
+    {
+        "code": "JPY",
+        "name": "Japanese Yen",
+        "img": "img"
+    },
+    {
+        "code": "GBP",
+        "name": "British Pound",
+        "img": "img"
+    }
+]
