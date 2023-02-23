@@ -8,8 +8,9 @@ const Currency = (props) => {
             <div className='text-secondary font-semibold text-[20px]'>
                 {props.heading}
             </div>
-            <CurrencySelect />
-            <CurrencyInput/>
+            {props.children}
+            {/* <CurrencySelect />
+            <CurrencyInput name={props.name} id={props.id}/> */}
         </div>
     )
 }
