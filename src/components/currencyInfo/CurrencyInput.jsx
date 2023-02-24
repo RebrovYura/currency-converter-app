@@ -1,9 +1,5 @@
-import { useState } from 'react'
-
 const CurrencyInput = (props) => {
   // TODO 9 символов в строке 
-
-  // const [value, setValue] = useState('')
 
   return (
     <div>

@@ -13,7 +13,7 @@ const CurrencySelect = (props) => {
         focusBorderColor='#F1F4FB'
         borderRadius='5px'
         className='font-poppins font-semibold'
-        onChange={(e) => setCode(e.target.value)}>
+        onChange={props.selectValueChange}>
         {
           currency.map(item => (
             <option value={item.code} key={item.code}>{item.code} - {item.name}</option>
