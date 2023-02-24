@@ -10,7 +10,10 @@ const Clock = () => {
     }, [])
 
     return (
-        <span className='font-poppins font-regular text-[16px] text-[#B4B4B4]'>Time: {date.toLocaleTimeString()}</span>
+        <div className='font-poppins font-regular text-[16px] text-[#B4B4B4] flex flex-col p-[10px] m-[15px]'>
+            <span className='mt-[5px]'>Date: {new Date().toLocaleDateString()}</span>
+            <span>Time: {date.toLocaleTimeString()}</span>
+        </div>
     )
 }
 

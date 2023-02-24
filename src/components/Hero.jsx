@@ -3,6 +3,8 @@ import Button from './Button';
 import img from '../assets/images/hero-main.png';
 
 const Hero = () => {
+
+
     return (
         <section id='home' className='flex flex-col lg:flex-row justify-center items-center md:gap-y-[50px] px-[30px] lg:gap-x-[50px] mb-[30px]'>
             <div className='max-w-[410px] order-last lg:order-first min-w-[290px]'>
@@ -16,7 +18,7 @@ const Hero = () => {
                     button below.
                 </p>
                 <div className=''>
-                    <Button name='Get started'/>
+                    <Button name='Get started' action='/converter'/>
                 </div>
             </div>
             <div className='min-w-[250px]'>
