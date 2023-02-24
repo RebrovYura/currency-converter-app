@@ -9,8 +9,6 @@ const Currency = (props) => {
                 {props.heading}
             </div>
             {props.children}
-            {/* <CurrencySelect />
-            <CurrencyInput name={props.name} id={props.id}/> */}
         </div>
     )
 }

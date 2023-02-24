@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import Clock from './Clock'
 import Currency from './currencyInfo/Currency'
 import Button from './Button'
@@ -7,6 +9,13 @@ import CurrencySelect from './currencyInfo/CurrencySelect'
 import CurrencyInput from './currencyInfo/CurrencyInput'
 
 const ConvertContainer = () => {
+
+    const [inputValue, setInputValue] = useState('')
+    const [selectValue, setSelectValue] = useState('')
+
+    const inputValueChange = (e) => {
+        setInputValue(value => value = e.target.value)
+    }
 
     return (
         <section className='rounded-[10px] md:rounded-[40px] shadow-containerShadow px-[10px] sm:px-[20px] py-[20px] mx-[20px] my-[20px]'>
@@ -18,18 +27,18 @@ const ConvertContainer = () => {
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
                     <Currency heading='Currency you have'>
                         <CurrencySelect />
-                        <CurrencyInput name='inputFirst' id='inputFirst' />
+                        <CurrencyInput name='inputFirst' id='inputFirst' inputValueChange={inputValueChange}/>
                     </Currency>
                     <div className='w-[35px] h-[35px] lg:w-[52px] lg:h-[52px]'>
                         <img src={arrows} alt="arrows" />
                     </div>
                     <Currency heading='Currency you will receive'>
                         <CurrencySelect />
-                        <CurrencyInput name='inputSecond' id='inputSecond' readOnly={true}/>
+                        <CurrencyInput name='inputSecond' id='inputSecond' readOnly={true} />
                     </Currency>
                 </div>
 
-                <Button name='Convert' />
+                <Button name='Convert'/>
             </div>
         </section>
     )
