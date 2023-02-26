@@ -21,6 +21,9 @@ const ConvertContainer = () => {
     const [selectSecondValue, setSelectSecondValue] = useState(currency[0].code)
 
     const handleValueChange = (value) => {
+        if (value.length > 9) {
+            value = value.slice(0, 9)
+        }
         setInputValue(value)
     }
 
@@ -52,7 +55,7 @@ const ConvertContainer = () => {
                     </div>
                     <Currency heading='Currency you will receive'>
                         <CurrencySelect selectValueChange={selectSecondValueChange} />
-                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue} onInputChange={handleValueChange}/>
+                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue} onInputChange={handleValueChange} readOnly={true}/>
                     </Currency>
                 </div>
 
