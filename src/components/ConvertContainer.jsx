@@ -17,8 +17,14 @@ const ConvertContainer = () => {
 
     const [inputValue, setInputValue] = useState()
     const [inputResultValue, setInputResultValue] = useState(inputValue)
-    const [selectFitstValue, setSelectFirstValue] = useState(currency[0].code)
+    const [selectFirstValue, setSelectFirstValue] = useState(currency[0].code)
     const [selectSecondValue, setSelectSecondValue] = useState(currency[0].code)
+
+    useEffect(() => {
+        if (inputValue !== '') {
+            currencyConvert(inputValue)
+        }
+    }, [inputValue, selectFirstValue, selectSecondValue, inputResultValue])
 
     const handleValueChange = (value) => {
         if (value.length > 9) {
@@ -37,7 +43,7 @@ const ConvertContainer = () => {
     }
 
     async function currencyConvert(value) {
-        await fetch(`https://v6.exchangerate-api.com/v6/${_apiKey}/pair/${selectFitstValue}/${selectSecondValue}/${value}`)
+        await fetch(`https://v6.exchangerate-api.com/v6/${_apiKey}/pair/${selectFirstValue}/${selectSecondValue}/${value}`)
             .then(response => response.json())
             .then(json => setInputResultValue(json.conversion_result))
     }
@@ -59,9 +65,7 @@ const ConvertContainer = () => {
                         <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue} onInputChange={handleValueChange} readOnly={true}/>
                     </Currency>
                 </div>
-
-                {/* <Button name='Convert' /> */}
-                <Button bgColor='#252525' color='#ffffff' variant='solid' onClick={() => currencyConvert()}>Convert</Button>
+                {/* <Button bgColor='#252525' color='#ffffff' variant='solid' onClick={() => currencyConvert()}>Convert</Button> */}
             </div>
         </section>
     )
