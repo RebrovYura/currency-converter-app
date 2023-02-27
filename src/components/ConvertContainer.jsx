@@ -3,27 +3,30 @@ import { Button } from '@chakra-ui/react'
 
 import Clock from './Clock'
 import Currency from './currencyInfo/Currency'
-// import Button from './Button'
 import CurrencySelect from './currencyInfo/CurrencySelect'
 import CurrencyInput from './currencyInfo/CurrencyInput'
+import Switch from './Switch'
 import ExchangeRates from './currencyInfo/ExchangeRates'
 import currency from '../data/currency.json'
-import arrows from '../assets/icons/arrows.svg'
+// import CurrencyConvert from '../service/response';
 
 const ConvertContainer = () => {
-
     const _apiKey = '1bea0341d31c1c930feca829'
-    let result = ''
-
+    
     const [inputValue, setInputValue] = useState()
     const [inputResultValue, setInputResultValue] = useState(inputValue)
     const [selectFirstValue, setSelectFirstValue] = useState(currency[0].code)
     const [selectSecondValue, setSelectSecondValue] = useState(currency[0].code)
+    
+    // const currencyConvert = new CurrencyConvert()
 
     useEffect(() => {
-        if (inputValue !== '') {
+        if (inputValue !== undefined) {
             currencyConvert(inputValue)
+            // ! dont do that  ----  handleClick() 
         }
+        // setSelectFirstValue((value) => value = selectFirstValue)
+        // setSelectSecondValue((value) => value = selectSecondValue)
     }, [inputValue, selectFirstValue, selectSecondValue, inputResultValue])
 
     const handleValueChange = (value) => {
@@ -42,6 +45,17 @@ const ConvertContainer = () => {
         setSelectSecondValue(e.target.value)
     }
 
+    const handleClick = () => {
+        let tempInput = inputValue
+        let tempSelect = selectFirstValue
+
+        setInputValue(inputResultValue)
+        setInputResultValue(tempInput)
+
+        setSelectFirstValue(selectSecondValue)
+        setSelectSecondValue(tempSelect)
+    }
+
     async function currencyConvert(value) {
         await fetch(`https://v6.exchangerate-api.com/v6/${_apiKey}/pair/${selectFirstValue}/${selectSecondValue}/${value}`)
             .then(response => response.json())
@@ -54,14 +68,14 @@ const ConvertContainer = () => {
             <div className='lg:mx-[90px] lg:my-[80px] mx-[10px] my-[20px]'>
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
                     <Currency heading='Currency you have'>
-                        <CurrencySelect selectValueChange={selectFirstValueChange} />
+                        <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue}/>
                         <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue} onInputChange={handleValueChange}/>
                     </Currency>
                     <div className='w-[35px] h-[35px] lg:w-[52px] lg:h-[52px]'>
-                        <img src={arrows} alt="arrows" />
+                        <Switch handleClick={handleClick}/>
                     </div>
                     <Currency heading='Currency you will receive'>
-                        <CurrencySelect selectValueChange={selectSecondValueChange} />
+                        <CurrencySelect selectValueChange={selectSecondValueChange} selectValue={selectSecondValue}/>
                         <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue} onInputChange={handleValueChange} readOnly={true}/>
                     </Currency>
                 </div>

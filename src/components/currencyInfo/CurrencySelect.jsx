@@ -14,6 +14,7 @@ const CurrencySelect = (props) => {
         borderRadius='5px'
         className='font-poppins font-semibold'
         onChange={props.selectValueChange}
+        value={props.selectValue}
         >
         {
           currency.map(item => (
