@@ -23,10 +23,7 @@ const ConvertContainer = () => {
     useEffect(() => {
         if (inputValue !== undefined) {
             currencyConvert(inputValue)
-            // ! dont do that  ----  handleClick() 
         }
-        // setSelectFirstValue((value) => value = selectFirstValue)
-        // setSelectSecondValue((value) => value = selectSecondValue)
     }, [inputValue, selectFirstValue, selectSecondValue, inputResultValue])
 
     const handleValueChange = (value) => {
@@ -69,14 +66,14 @@ const ConvertContainer = () => {
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
                     <Currency heading='Currency you have'>
                         <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue}/>
-                        <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue} onInputChange={handleValueChange}/>
+                        <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue.toString().slice(0, 9)} onInputChange={handleValueChange}/>
                     </Currency>
                     <div className='w-[35px] h-[35px] lg:w-[52px] lg:h-[52px]'>
                         <Switch handleClick={handleClick}/>
                     </div>
                     <Currency heading='Currency you will receive'>
                         <CurrencySelect selectValueChange={selectSecondValueChange} selectValue={selectSecondValue}/>
-                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue} onInputChange={handleValueChange} readOnly={true}/>
+                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue.toString().slice(0, 9)} onInputChange={handleValueChange} readOnly={true}/>
                     </Currency>
                 </div>
                 {/* <Button bgColor='#252525' color='#ffffff' variant='solid' onClick={() => currencyConvert()}>Convert</Button> */}
