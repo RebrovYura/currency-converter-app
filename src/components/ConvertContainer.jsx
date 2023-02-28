@@ -20,7 +20,7 @@ const ConvertContainer = () => {
 
     useEffect(() => {
         if (inputValue !== undefined) {
-            // getCurrencyPair()
+            getCurrencyPair()
         }
     }, [inputValue, selectFirstValue, selectSecondValue])
 
