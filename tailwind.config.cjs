@@ -5,6 +5,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   mode: 'jit',
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -12,6 +13,7 @@ module.exports = {
         secondary: '#252525',
         accent: '#FFB703',
         input: '#F1F4FB',
+        darkbg: '#404040'
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],

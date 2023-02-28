@@ -65,9 +65,9 @@ const ConvertContainer = () => {
     }
 
     return (
-        <section className='rounded-[10px] md:rounded-[40px] shadow-containerShadow px-[10px] sm:px-[20px] py-[20px] mx-[20px] my-[20px]'>
-            <Clock />
+        <section className='rounded-[10px] md:rounded-[40px] dark:shadow-buttonShadow shadow-containerShadow px-[10px] sm:px-[20px] py-[20px] mx-[20px] my-[20px]'>
             <div className='lg:mx-[90px] lg:my-[80px] mx-[10px] my-[20px]'>
+                <Clock />
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
                     <Currency heading='Currency you have'>
                         <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue} />
@@ -81,7 +81,7 @@ const ConvertContainer = () => {
                         <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue.toString().slice(0, 9)} onInputChange={handleValueChange} readOnly={true} />
                     </Currency>
                 </div>
-                <ExchangeRates rate={rate} selectFirstValue={selectFirstValue} selectSecondValue={selectSecondValue}/>
+                <ExchangeRates rate={rate} selectFirstValue={selectFirstValue} selectSecondValue={selectSecondValue} />
             </div>
         </section>
     )

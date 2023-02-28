@@ -6,7 +6,7 @@ import Converter from './pages/Converter'
 
 const App = () => {
   return (
-    <div className='main flex flex-col min-h-[100vh] justify-between'>
+    <div className='main flex flex-col min-h-[100vh] justify-between dark:bg-secondary'>
       <div className='navbar max-w-[1170px] mx-auto w-full'>
         <Navbar />
       </div>

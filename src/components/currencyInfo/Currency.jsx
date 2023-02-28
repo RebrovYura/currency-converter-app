@@ -5,7 +5,7 @@ import CurrencyInput from './CurrencyInput';
 const Currency = (props) => {
     return (
         <div className='md:w-[350px] w-full'>
-            <div className='text-secondary font-semibold text-[20px]'>
+            <div className='dark:text-primary text-secondary font-semibold text-[20px] mb-[5px]'>
                 {props.heading}
             </div>
             {props.children}
