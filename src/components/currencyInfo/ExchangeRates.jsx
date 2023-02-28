@@ -1,9 +1,7 @@
-import React from 'react'
-
 const ExchangeRates = (props) => {
   return (
-    <div className=''>
-        <span>Currency today</span>
+    <div className='font-semibold'>
+        <span>1 {props.selectFirstValue} = {props.rate} {props.selectSecondValue}</span>
     </div>
   )
 }

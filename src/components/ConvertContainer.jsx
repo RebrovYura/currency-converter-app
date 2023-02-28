@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Button } from '@chakra-ui/react'
 
 import Clock from './Clock'
 import Currency from './currencyInfo/Currency'
@@ -8,21 +7,20 @@ import CurrencyInput from './currencyInfo/CurrencyInput'
 import Switch from './Switch'
 import ExchangeRates from './currencyInfo/ExchangeRates'
 import currency from '../data/currency.json'
-// import CurrencyConvert from '../service/response';
 
 const ConvertContainer = () => {
     const _apiKey = '1bea0341d31c1c930feca829'
-    
+    const _apiBase = 'https://v6.exchangerate-api.com/v6/'
+
     const [inputValue, setInputValue] = useState(1000)
     const [inputResultValue, setInputResultValue] = useState(inputValue)
     const [selectFirstValue, setSelectFirstValue] = useState(currency[0].code)
     const [selectSecondValue, setSelectSecondValue] = useState(currency[0].code)
-    
-    // const currencyConvert = new CurrencyConvert()
+    const [rate, setRate] = useState('')
 
     useEffect(() => {
         if (inputValue !== undefined) {
-            currencyConvert(inputValue)
+            // getCurrencyPair()
         }
     }, [inputValue, selectFirstValue, selectSecondValue])
 
@@ -52,10 +50,18 @@ const ConvertContainer = () => {
         setSelectSecondValue(tempSelect)
     }
 
-    async function currencyConvert(value) {
-        await fetch(`https://v6.exchangerate-api.com/v6/${_apiKey}/pair/${selectFirstValue}/${selectSecondValue}/${value}`)
-            .then(response => response.json())
-            .then(json => setInputResultValue(json.conversion_result))
+    const getRecources = async (url) => {
+        let res = await fetch(url);
+        if (!res.ok) {
+            throw new Error(`Could not fetch ${url}, status ${res.status}`);
+        }
+        return await res.json();
+    }
+
+    const getCurrencyPair = async () => {
+        const res = await getRecources(`${_apiBase}${_apiKey}/pair/${selectFirstValue}/${selectSecondValue}/${inputValue}`)
+        setInputResultValue(res.conversion_result)
+        setRate(res.conversion_rate)
     }
 
     return (
@@ -64,18 +70,18 @@ const ConvertContainer = () => {
             <div className='lg:mx-[90px] lg:my-[80px] mx-[10px] my-[20px]'>
                 <div className='flex flex-col gap-[15px] lg:flex-row justify-between items-center'>
                     <Currency heading='Currency you have'>
-                        <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue}/>
-                        <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue.toString().slice(0, 9)} onInputChange={handleValueChange}/>
+                        <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue} />
+                        <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue.toString().slice(0, 9)} onInputChange={handleValueChange} />
                     </Currency>
                     <div className='w-[40px] h-[40px] lg:w-[52px] lg:h-[52px]'>
-                        <Switch handleClick={handleClick}/>
+                        <Switch handleClick={handleClick} />
                     </div>
                     <Currency heading='Currency you will receive'>
-                        <CurrencySelect selectValueChange={selectSecondValueChange} selectValue={selectSecondValue}/>
-                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue.toString().slice(0, 9)} onInputChange={handleValueChange} readOnly={true}/>
+                        <CurrencySelect selectValueChange={selectSecondValueChange} selectValue={selectSecondValue} />
+                        <CurrencyInput name='inputSecond' id='inputSecond' value={inputResultValue.toString().slice(0, 9)} onInputChange={handleValueChange} readOnly={true} />
                     </Currency>
                 </div>
-                {/* <Button bgColor='#252525' color='#ffffff' variant='solid' onClick={() => currencyConvert()}>Convert</Button> */}
+                <ExchangeRates rate={rate} selectFirstValue={selectFirstValue} selectSecondValue={selectSecondValue}/>
             </div>
         </section>
     )
