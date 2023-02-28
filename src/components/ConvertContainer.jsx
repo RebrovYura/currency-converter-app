@@ -13,7 +13,7 @@ import currency from '../data/currency.json'
 const ConvertContainer = () => {
     const _apiKey = '1bea0341d31c1c930feca829'
     
-    const [inputValue, setInputValue] = useState()
+    const [inputValue, setInputValue] = useState(1000)
     const [inputResultValue, setInputResultValue] = useState(inputValue)
     const [selectFirstValue, setSelectFirstValue] = useState(currency[0].code)
     const [selectSecondValue, setSelectSecondValue] = useState(currency[0].code)
@@ -24,14 +24,13 @@ const ConvertContainer = () => {
         if (inputValue !== undefined) {
             currencyConvert(inputValue)
         }
-    }, [inputValue, selectFirstValue, selectSecondValue, inputResultValue])
+    }, [inputValue, selectFirstValue, selectSecondValue])
 
     const handleValueChange = (value) => {
         if (value.length > 9) {
             value = value.slice(0, 9)
         }
         setInputValue(value)
-        currencyConvert(value)
     }
 
     const selectFirstValueChange = (e) => {
@@ -68,7 +67,7 @@ const ConvertContainer = () => {
                         <CurrencySelect selectValueChange={selectFirstValueChange} selectValue={selectFirstValue}/>
                         <CurrencyInput name='inputFirst' id='inputFirst' value={inputValue.toString().slice(0, 9)} onInputChange={handleValueChange}/>
                     </Currency>
-                    <div className='w-[35px] h-[35px] lg:w-[52px] lg:h-[52px]'>
+                    <div className='w-[40px] h-[40px] lg:w-[52px] lg:h-[52px]'>
                         <Switch handleClick={handleClick}/>
                     </div>
                     <Currency heading='Currency you will receive'>
