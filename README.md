@@ -1,10 +1,12 @@
 # Welcome to the Currency Converter App!
 
 Main page
-<img src='./docs/images/main.png'/>
+
+<img width='850px' src='./docs/images/main.png'/>
 
 Converter page
-<img src='./docs/images/converter.png'/>
+
+<img width='850px' src='./docs/images/converter.png'/>
 
 # This project has the following features:
  - You can convert from one currency to another;
