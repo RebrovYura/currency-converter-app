@@ -1,9 +1,11 @@
 # Welcome to the Currency Converter App!
 
-Main page
+# Main page
+
 <img src='./docs/images/main.png'/>
 
-Converter page
+# Converter page
+
 <img src='./docs/images/converter.png'/>
 
 # This project has the following features:
