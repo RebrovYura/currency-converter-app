@@ -17,3 +17,4 @@ Converter page
  - [Vite+React](https://vitejs.dev/) - Vite is a build tool that aims to provide a faster and leaner development experience for modern web projects
  - [Tailwindcss](https://tailwindcss.com/) - Tailwind CSS is an open source CSS framework
  - [ChakraUI](https://chakra-ui.com/) - Chakra UI is a simple, modular and accessible component library that gives you the building blocks you need to build your React applications
+ - [ExchangeRate-API](https://www.exchangerate-api.com/) - Currency conversion rates for 161 currencies
